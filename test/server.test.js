@@ -21,4 +21,14 @@ describe('express web server', function() {
             done();
         });
     });
+
+    it('should serve static content', function(done) {
+        request(server)
+        .get('/css/style.css')
+        .end(function(err, res) {
+            should.not.exist(err);
+            res.headers['content-type'].should.equal('text/css');
+            done();
+        });
+    });
 });
