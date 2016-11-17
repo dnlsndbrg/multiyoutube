@@ -19,6 +19,6 @@ describe('express web server', function() {
             res.status.should.equal(200);
             res.text.should.equal('Hello');
             done();
-        })
+        });
     });
 });
