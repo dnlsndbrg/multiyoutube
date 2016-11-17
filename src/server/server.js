@@ -8,7 +8,7 @@ let port = 3000;
 app.use(express.static(path.join(__dirname, '../../public')));
 
 app.get('/', (req, res) => {
-    res.send('Hello');
+    res.sendFile(path.join(__dirname, './views/index.html'));
 });
 
 let server = http.createServer(app).listen(port, () => {
