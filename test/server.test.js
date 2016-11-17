@@ -5,7 +5,7 @@ describe('express web server', function() {
     let server;
 
     beforeEach(function () {
-        server = require('../src/server/server');
+        server = require('../src/server/server').server;
     });
     afterEach(function () {
         server.close();
