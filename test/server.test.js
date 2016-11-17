@@ -11,7 +11,7 @@ describe('express web server', function() {
         server.close();
     });
 
-    it('GET / should respond with Hello', function(done) {
+    it('should respond with Hello on GET /', function(done) {
         request(server)
         .get('/')
         .end(function(err, res) {
