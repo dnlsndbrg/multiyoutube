@@ -4,18 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "mocha -R spec",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dnlsndbrg/multiuser-browser.git"
+    "url": "git+https://github.com/dnlsndbrg/multiyoutube.git"
   },
   "author": "Daniel Sundberg",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dnlsndbrg/multiuser-browser/issues"
+    "url": "https://github.com/dnlsndbrg/multiyoutube/issues"
   },
-  "homepage": "https://github.com/dnlsndbrg/multiuser-browser#readme",
+  "homepage": "https://github.com/dnlsndbrg/multiyoutube#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
