@@ -1,5 +1,6 @@
 let express = require('express');
 let path = require('path');
+let http = require('http');
 let app = express();
 let port = 3000;
 
@@ -9,8 +10,10 @@ app.get('/', (req, res) => {
     res.send('Hello');
 });
 
-let server = app.listen(port, function () {
-    console.log('Express server listening at port %s', port);
+let server = http.createServer(app).listen(port, () => {
+    console.log('Express is running on port %s', port);
 });
 
-module.exports = server;
+module.exports = {
+    server: server
+};
