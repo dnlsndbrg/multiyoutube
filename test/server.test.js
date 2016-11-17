@@ -11,14 +11,25 @@ describe('express web server', function() {
         server.close();
     });
 
-    it('should respond with Hello on GET /', function(done) {
-        request(server)
-        .get('/')
-        .end(function(err, res) {
-            should.not.exist(err);
-            res.status.should.equal(200);
-            res.text.should.equal('Hello');
-            done();
+    describe('GET /', function() {
+        it('should respond with index.html', function(done) {
+            request(server)
+            .get('/')
+            .end(function(err, res) {
+                should.not.exist(err);
+                res.status.should.equal(200);
+                res.type.should.equal('text/html');
+                done();
+            });
+        });
+
+        it('should contain a div with id player', function(done) {
+            request(server)
+            .get('/')
+            .end(function(err, res) {
+                res.text.should.match(/id='player'/);
+                done();
+            });
         });
     });
 
