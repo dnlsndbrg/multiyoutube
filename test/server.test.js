@@ -24,10 +24,10 @@ describe('express web server', function() {
 
     it('should serve static content', function(done) {
         request(server)
-        .get('/css/style.css')
+        .get('/css/stylesheet.css')
         .end(function(err, res) {
             should.not.exist(err);
-            res.headers['content-type'].should.equal('text/css');
+            res.headers['content-type'].should.equal('text/css; charset=UTF-8');
             done();
         });
     });
