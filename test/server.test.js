@@ -4,10 +4,10 @@ let request = require('supertest');
 describe('express web server', function() {
     let server;
 
-    beforeEach(function () {
+    before(function () {
         server = require('../src/server/server');
     });
-    afterEach(function () {
+    after(function () {
         server.close();
     });
 
