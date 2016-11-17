@@ -6,14 +6,14 @@ describe('express web server', function() {
     let port = 8080;
     let baseUrl = 'http://localhost' + port;
 
-
     it('GET / should respond with Hello', function(done) {
         request(baseUrl)
         .end(function(err, res) {
+            if (err) return done(err);
+
             res.should.have.status(200);
             res.text.should.equal('Hello');
             done();
         })
     });
-
 });
