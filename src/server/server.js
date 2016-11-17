@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 });
 
 let server = app.listen(port, function () {
-  console.log('Express server listening at port %s', port);
+    console.log('Express server listening at port %s', port);
 });
 
 module.exports = server;
