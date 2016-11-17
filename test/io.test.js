@@ -10,7 +10,7 @@ describe('socket io', function () {
 
     beforeEach(function (done) {
         // start the server
-        server = require('../src/server/server').io;
+        server = require('../src/server/io');
         done();
     });
 
