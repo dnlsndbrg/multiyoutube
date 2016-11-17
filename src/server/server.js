@@ -1,10 +1,13 @@
 let express = require('express');
-let server = express();
+let app = express();
+let port = 3000;
 
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello');
 });
 
-server.listen(3000, function() {
-    console.log('express running on port 3000');
+let server = app.listen(port, function () {
+  console.log('Express server listening at port %s', port);
 });
+
+module.exports = server;
