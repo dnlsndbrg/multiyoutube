@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node ./src/server/server.js",
+    "start": "npm-run-all --parallel watch:* start-server",
+    "start-server": "node ./src/server/server.js",
+    "watch:js": "watchify ./src/client/js/main.js -o ./public/js/bundle.js -d -v --poll",
     "test": "mocha -R spec || exit 0",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec || exit 0"
   },
@@ -22,9 +24,11 @@
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
+    "npm-run-all": "^3.1.1",
     "sinon": "^1.17.6",
     "socket.io-client": "^1.5.1",
-    "supertest": "^2.0.1"
+    "supertest": "^2.0.1",
+    "watchify": "^3.7.0"
   },
   "dependencies": {
     "express": "^4.14.0",
