@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node bin/www",
-    "startdev": "npm-run-all --parallel watch:* start-server",
+    "dev": "npm-run-all --parallel watch:* start-server",
     "start-server": "nodemon bin/www",
     "watch:js": "watchify ./src/client/main.js -o ./public/js/bundle.js -d -v --poll",
     "watch:test": "mocha -R spec -w || exit 0",
