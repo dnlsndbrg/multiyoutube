@@ -1,5 +1,5 @@
 let should = require('chai').should();
-let sut = require('../src/client/js/Youtube');
+let sut = require('../src/client/Youtube');
 
 describe('Youtube Class', function() {
     let actual;
