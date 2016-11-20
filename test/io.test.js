@@ -2,7 +2,7 @@ let should = require('chai').should();
 let io = require('socket.io-client');
 
 describe('socket io', function () {
-    let server;
+    let ioServer;
     let options ={
         transports: ['websocket'],
         'force new connection': true
@@ -10,8 +10,12 @@ describe('socket io', function () {
 
     beforeEach(function (done) {
         // start the server
-        server = require('../src/server/io');
+        ioServer = require('../src/server/io');
         done();
+    });
+
+    after(function() {
+        ioServer.close();
     });
 
     it('echoes messages', function (done) {
