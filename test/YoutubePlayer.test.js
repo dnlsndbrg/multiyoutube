@@ -14,6 +14,11 @@ describe('Youtube Class', function() {
         sut.should.be.an('object');
     });
 
+    it('should have properties player and done', function() {
+        sut.should.have.property('done');
+        sut.should.have.property('player');
+    });
+
     describe('onYouTubeIframeAPIReady', function() {
         it('should create a player', () => {
             let iframeAPI = { Player: sinon.stub() };
