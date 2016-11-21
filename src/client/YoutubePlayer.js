@@ -1,7 +1,7 @@
 class YoutubePlayer {
     constructor() {
         this.done = false;
-        this.player;
+        this.player = null;
     }
 
     onYouTubeIframeAPIReady(iframeAPI) {
