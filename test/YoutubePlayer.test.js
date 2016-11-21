@@ -17,8 +17,12 @@ describe('Youtube Class', function() {
     describe('onYouTubeIframeAPIReady', function() {
         it('should create a player', () => {
             let iframeAPI = { Player: sinon.stub() };
+            sinon.spy(iframeAPI);
+
             sut.onYouTubeIframeAPIReady(iframeAPI);
+
             sut.player.should.exist;
+            sut.player.called.should.be.true;
         });
     });
 });
