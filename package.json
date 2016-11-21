@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node bin/www",
-    "dev": "npm-run-all --parallel watch:* start-server",
-    "start-server": "nodemon bin/www",
-    "watch:js": "watchify ./src/client/main.js -o ./public/js/bundle.js -d -v --poll",
+    "dev": "npm-run-all --parallel watch:*",
+    "watch:nodemon": "nodemon --watch src/server bin/www",
+    "watch:browserify": "watchify ./src/client/client.js -o ./public/js/bundle.js -d -v --poll",
     "watch:test": "mocha -R spec -w || exit 0",
     "test": "mocha -R spec || exit 0",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec || exit 0"
