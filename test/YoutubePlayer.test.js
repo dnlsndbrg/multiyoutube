@@ -33,16 +33,21 @@ describe('Youtube Class', function() {
     });
 
     describe('Change video', function() {
-        it('should call player.loadVideoById', function() {
+        it('should validate video ID', function() {
+            let spy = sinon.spy(sut, 'isValidVideoID');
+            sut.player = { loadVideoById: sinon.stub() };
+            sut.changeVideo('videoID');
+            spy.called.should.be.true;
+            spy.reset();
+        });
 
+        it('should call player.loadVideoById', function() {
             sut.player = {
                 loadVideoById: sinon.spy()
             };
-
-            let videoID = 'abc';
+            let videoID = 'XGQevaXj3tQ';
             sut.changeVideo(videoID);
             sut.player.loadVideoById.called.should.be.true;
-
             sut.player.loadVideoById.reset();
         });
     });

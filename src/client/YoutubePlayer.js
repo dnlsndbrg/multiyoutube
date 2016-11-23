@@ -18,7 +18,8 @@ class YoutubePlayer {
     }
 
     changeVideo(videoID) {
-        this.player.loadVideoById(videoID);
+        if (this.isValidVideoID(videoID))
+            this.player.loadVideoById(videoID);
     }
 
     getVideoIDfromURL(url) {
