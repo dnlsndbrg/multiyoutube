@@ -5,7 +5,7 @@ class YoutubePlayer {
     }
 
     onYouTubeIframeAPIReady(iframeAPI) {
-        if(!iframeAPI) throw new Error('Missing API argument');
+        if(!iframeAPI) throw new Error('Missing API argument - pass this script https://www.youtube.com/iframe_api as an argument');
         this.player = new iframeAPI.Player('player', {
             height: '390',
             width: '640',

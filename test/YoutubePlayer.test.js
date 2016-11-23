@@ -30,7 +30,7 @@ describe('Youtube Class', function() {
 
         it('should throw an error if no API is passed in', function() {
             expect(sut.onYouTubeIframeAPIReady.bind(sut))
-            .to.throw('Missing API argument');
+            .to.throw('Missing API argument - pass this script https://www.youtube.com/iframe_api as an argument');
         });
     });
 });
