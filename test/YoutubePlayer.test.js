@@ -48,4 +48,18 @@ describe('Youtube Class', function() {
             sut.player.loadVideoById.reset();
         });
     });
+
+    describe('getVideoIDfromURL', function() {
+        it('should return videoID from valid urls', function() {
+            let url = 'https://www.youtube.com/watch?v=XGQevaXj3tQ';
+            sut.getVideoIDfromURL.bind(sut, url)
+            .should.not.throw('bad url');
+        });
+
+        it('should return error on invalid urls', function() {
+            let url = 'bad url';
+            sut.getVideoIDfromURL.bind(sut, url)
+            .should.throw('bad url');
+        });
+    });
 });
