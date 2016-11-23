@@ -1,4 +1,5 @@
 let should = require('chai').should();
+let expect = require('chai').expect;
 let sinon = require('sinon');
 
 let YoutubePlayer = require('../src/client/YoutubePlayer');
@@ -22,11 +23,14 @@ describe('Youtube Class', function() {
     describe('onYouTubeIframeAPIReady', function() {
         it('should create a player', () => {
             let iframeAPI = { Player: sinon.stub() };
-
             sut.onYouTubeIframeAPIReady(iframeAPI);
-
             sut.player.should.exist;
             sinon.assert.called(iframeAPI.Player);
+        });
+
+        it('should throw an error if no API is passed in', function() {
+            expect(sut.onYouTubeIframeAPIReady.bind(sut))
+            .to.throw('Missing API argument');
         });
     });
 });
