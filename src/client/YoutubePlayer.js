@@ -16,6 +16,10 @@ class YoutubePlayer {
             }
         });
     }
+
+    changeVideo(videoID) {
+        this.player.loadVideoById(videoID);
+    }
 }
 
 module.exports = YoutubePlayer;
