@@ -28,6 +28,11 @@ class YoutubePlayer {
         if (videoID) return videoID[1];
         else throw new Error('bad url');
     }
-}
 
+    isValidVideoID(videoID) {
+        let regexp = /[a-zA-Z0-9_-]{11}/;
+        return regexp.test(videoID);
+    }
+}
+//[a-zA-Z0-9_-]{11}
 module.exports = YoutubePlayer;
