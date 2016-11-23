@@ -1,7 +1,5 @@
 let should = require('chai').should();
-
 let sinon = require('sinon');
-
 let YoutubePlayer = require('../src/client/YoutubePlayer');
 
 describe('Youtube Class', function() {
@@ -60,6 +58,18 @@ describe('Youtube Class', function() {
             let url = 'bad url';
             sut.getVideoIDfromURL.bind(sut, url)
             .should.throw('bad url');
+        });
+    });
+
+    describe('isValidVideoID', function() {
+        it('should return true on valid video IDs', function(){
+            let videoID = 'XGQevaXj3tQ';
+            sut.isValidVideoID(videoID).should.be.true;
+        });
+
+        it('should return false on invalid video IDs', function(){
+            let videoID = '!324asdÄ';
+            sut.isValidVideoID(videoID).should.be.false;
         });
     });
 });
