@@ -1,3 +1,5 @@
+'use strict';
+
 let should = require('chai').should();
 let sinon = require('sinon');
 let YoutubePlayer = require('../src/client/YoutubePlayer');
@@ -32,7 +34,7 @@ describe('Youtube Class', function() {
         });
     });
 
-    describe('Change video', function() {
+    describe('changeVideo', function() {
         it('should validate video ID', function() {
             let spy = sinon.spy(sut, 'isValidVideoID');
             sut.player = { loadVideoById: sinon.stub() };
