@@ -1,4 +1,5 @@
 let should = require('chai').should();
+
 let sinon = require('sinon');
 
 let YoutubePlayer = require('../src/client/YoutubePlayer');
@@ -30,6 +31,21 @@ describe('Youtube Class', function() {
         it('should throw an error if no API is passed in', function() {
             sut.onYouTubeIframeAPIReady.bind(sut)
             .should.throw('Missing API argument - pass this script https://www.youtube.com/iframe_api as an argument');
+        });
+    });
+
+    describe('Change video', function() {
+        it('should call player.loadVideoById', function() {
+
+            sut.player = {
+                loadVideoById: sinon.spy()
+            };
+
+            let videoID = 'abc';
+            sut.changeVideo(videoID);
+            sut.player.loadVideoById.called.should.be.true;
+
+            sut.player.loadVideoById.reset();
         });
     });
 });
