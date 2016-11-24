@@ -1,5 +1,11 @@
-let youtubePlayer = new require('./YoutubePlayer')();
+let YoutubePlayer = require('./YoutubePlayer');
+let InputForm = require('./InputForm');
 
-function onYouTubeIframeAPIReady() {
-    youtubePlayer.onYouTubeIframeAPIReady();
-}
+let youtubePlayer = new YoutubePlayer();
+let input = document.querySelector('#input');
+let button = document.querySelector('#add-url-button');
+let inputform = new InputForm(input, button, youtubePlayer);
+
+window.onYouTubeIframeAPIReady = function() {
+    youtubePlayer.onYouTubeIframeAPIReady(window.YT);
+};
