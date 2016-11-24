@@ -39,4 +39,12 @@ describe('Input form for youtube urls', function() {
             this.sut.youtubePlayer.changeVideo.called.should.be.true;
         });
     });
+
+    describe('getStringFromInput', function() {
+        it('should return the text value from the input field', function() {
+            this.sut.input.value = 'test';
+            let actual = this.sut.getStringFromInput();
+            actual.should.equal('test');
+        });
+    });
 });
