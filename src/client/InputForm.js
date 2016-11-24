@@ -14,6 +14,14 @@ class InputForm {
     getStringFromInput() {
         return this.input.value;
     }
+
+    getVideoIDfromURL(url) {
+        let regexp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
+        let videoID = url.match(regexp);
+
+        if (videoID) return videoID[1];
+        else throw new Error('bad url');
+    }
 }
 
 module.exports = InputForm;

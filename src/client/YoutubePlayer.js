@@ -22,18 +22,10 @@ class YoutubePlayer {
             this.player.loadVideoById(videoID);
     }
 
-    getVideoIDfromURL(url) {
-        let regexp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
-        let videoID = url.match(regexp);
-
-        if (videoID) return videoID[1];
-        else throw new Error('bad url');
-    }
-
     isValidVideoID(videoID) {
         let regexp = /[a-zA-Z0-9_-]{11}/;
         return regexp.test(videoID);
     }
 }
-//[a-zA-Z0-9_-]{11}
+
 module.exports = YoutubePlayer;
