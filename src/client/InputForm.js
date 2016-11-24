@@ -8,7 +8,9 @@ class InputForm {
 
     submit(e) {
         e.preventDefault();
-        this.youtubePlayer.changeVideo();
+        let url = this.getStringFromInput();
+        let videoID = this.getVideoIDfromURL(url);
+        this.youtubePlayer.changeVideo(videoID);
     }
 
     getStringFromInput() {

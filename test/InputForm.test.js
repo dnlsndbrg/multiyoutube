@@ -23,6 +23,15 @@ describe('Input form for youtube urls', function() {
     });
 
     describe('submit', function() {
+        beforeEach(function() {
+            sinon.stub(this.sut, 'getStringFromInput');
+            sinon.stub(this.sut, 'getVideoIDfromURL');
+        });
+        afterEach(function() {
+            this.sut.getStringFromInput.restore();
+            this.sut.getVideoIDfromURL.restore();
+        });
+
         it('should prevent default submit event', function() {
             let event = {
                 type: 'click',
@@ -30,11 +39,13 @@ describe('Input form for youtube urls', function() {
             };
             this.sut.submit(event);
             event.preventDefault.called.should.be.true;
-            event.preventDefault.reset();
         });
 
         it('should call changeVideo on the youtube player', function() {
-            let event = { preventDefault: sinon.stub() };
+            let event = {
+                type: 'click',
+                preventDefault: sinon.stub()
+            };
             this.sut.submit(event);
             this.sut.youtubePlayer.changeVideo.called.should.be.true;
         });
