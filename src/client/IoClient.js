@@ -1,8 +1,9 @@
 class IoClient {
-    constructor() {}
-
+    constructor(url) {
+        this.url = url;
+    }
     connect(io) {
-        io();
+        io(this.url);
     }
 }
 
