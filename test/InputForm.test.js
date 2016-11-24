@@ -47,4 +47,18 @@ describe('Input form for youtube urls', function() {
             actual.should.equal('test');
         });
     });
+
+    describe('getVideoIDfromURL', function() {
+        it('should return videoID from valid urls', function() {
+            let url = 'https://www.youtube.com/watch?v=XGQevaXj3tQ';
+            this.sut.getVideoIDfromURL.bind(this.sut, url)
+            .should.not.throw('bad url');
+        });
+
+        it('should return error on invalid urls', function() {
+            let url = 'bad url';
+            this.sut.getVideoIDfromURL.bind(this.sut, url)
+            .should.throw('bad url');
+        });
+    });
 });
