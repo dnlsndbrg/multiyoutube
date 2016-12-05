@@ -2,6 +2,8 @@
 
 ## Assignment 1. Part 2. XUnit testing
 
+### description
+This web app will sync the embedded youtube player to all visitors. Meaning if one visitor stops the video, it stops for everyone. If one visitor changes the url to another video, it will change for everyone.
 
 ### Installation
 * Requires node.js.
