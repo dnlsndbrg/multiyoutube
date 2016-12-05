@@ -17,18 +17,6 @@ class YoutubePlayer {
         });
     }
 
-    onPlayerReady() {
-        console.log('Ready');
-    }
-
-    onPlayerStateChange(event) {
-        console.log('State change', event);
-    }
-
-    stopVideo() {
-        console.log('Stop');
-    }
-
     changeVideo(videoID) {
         if (this.isValidVideoID(videoID))
             this.player.loadVideoById(videoID);
