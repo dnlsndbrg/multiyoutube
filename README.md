@@ -7,9 +7,13 @@
 * Requires node.js.
 * Run `npm install` to install all dependencies.
 
-### Running
+### Run & build
 * `npm start` will start the webserver
-* `npm run dev` will start automatic test runner and automatic server restart on file changes
+* `npm run dev` will do 3 things:
+  * start the webserver using nodemon which will automatically restart the server on file change
+  * Watch client script files and automatically build bundle.js with browserify
+  * Automatically re-run tests on save
+* `npm run build` to build bundle.js
 
 ### testing
 * `npm test` to run tests
